@@ -1,16 +1,18 @@
-from package.abertos import abertos
-from package.sla import sla
-from package.encerrado import encerrados
-from package.opc import opc
-from package.analise import gatilho_analise
-from package.zero import gatilho_zero
-from package.componentes import gatilho_componentes
-from package.critical import critical
-from package.trn import gatilho_trn
-from package.aut import gatilho_aut
-from package.diario_bordo import gatilho_diario
-from package.expurgos import expurgos
-from package.consumo_nata import nata_execucao
+from abertos import abertos
+from sla import sla
+from encerrado import encerrados
+from opc import opc
+from analise import gatilho_analise
+from zero import gatilho_zero
+from componentes import gatilho_componentes
+from critical import critical
+from trn import gatilho_trn
+from aut import gatilho_aut
+from diario_bordo import gatilho_diario
+from expurgos import expurgos
+from consumo_nata import nata_execucao
+from trn_pista import gatilho_trn_pista
+from audit import gatilho_audit
 
 from utils.logs_escrita import log_info
 
@@ -55,6 +57,10 @@ if __name__ == "__main__":
     gatilho_trn()
     log_info("Finalizando o processo TRN_AUT...")
 
+    log_info("Iniciando o processo TRN_Pista...")
+    gatilho_trn_pista()
+    log_info("Finalizando o processo TRN_Pista...")
+
     log_info("Iniciando o processo TRN_AUT...")
     gatilho_aut()
     log_info("Finalizando o processo TRN_AUT...")
@@ -66,6 +72,10 @@ if __name__ == "__main__":
     log_info("Iniciando o processo Expurgos...")
     expurgos()
     log_info("Finalizando o processo Expurgos...")
+
+    log_info("Iniciando o processo Auditoria...")
+    gatilho_audit()
+    log_info("Finalizando o processo Auditoria...")
 
     log_info("Iniciando o processo Nata...")
     nata_execucao()

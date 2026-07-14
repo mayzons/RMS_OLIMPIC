@@ -146,6 +146,5 @@ build/
 LOG/
 log/
 Congif.json
-package/*
 dist/
 Config.json

@@ -2,20 +2,16 @@ from datetime import datetime
 import os
 import logging
 from logging.handlers import TimedRotatingFileHandler
-from utils.caminhos import PASTA_LOGS, LOG_ESCRITA
+from utils.caminhos import PASTA_LOGS, LOG_ESCRITA, CAMINHO_LOGS
 
 
 # Variaveis
 hora_atual = datetime.now()
 nm_log_data = datetime.strftime(datetime.now(), '%Y-%m-%d')
-CAMINHO_LOGS = PASTA_LOGS
+CAMINHO_LOGS = CAMINHO_LOGS
 nome_log = f'{nm_log_data}'
 
-raiz_pasta = r'C:\\script\\processos\\logs'
-
-os.makedirs(raiz_pasta, exist_ok=True)
-# TEMP
-CAMINHO_LOGS = raiz_pasta
+os.makedirs(CAMINHO_LOGS, exist_ok=True)
 
 logger = logging.getLogger()
 cwd = os.getcwd()

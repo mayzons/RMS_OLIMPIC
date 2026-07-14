@@ -1,14 +1,17 @@
 {
-    "proxima_execucao_analise": "2026-03-25 15:58:16",
-    "proxima_execucao_zero": "2027-03-07 15:16:23",
-    "proxima_execucao_componentes": "2027-03-07 16:55:16",
-    "proxima_execucao_trn": "2027-03-13 15:16:15",
-    "proxima_execucao_aut": "2027-03-13 15:16:43",
-    "proxima_execucao_diario": "2027-03-13 16:17:18",
+    "proxima_execucao_analise": "2026-07-14 12:20:22",
+    "proxima_execucao_zero": "2026-07-14 12:20:35",
+    "proxima_execucao_componentes": "2026-07-14 12:21:36",
+    "proxima_execucao_trn": "2026-07-14 11:21:36",
+    "proxima_execucao_aut": "2026-07-14 11:21:36",
+    "proxima_execucao_trn_pista": "2026-07-14 11:21:36",
+    "proxima_execucao_diario": "2026-07-14 12:21:36",
+    "proxima_execucao_audit": "2026-07-14 12:21:40",
     "horas_analise": 2,
     "horas_zero": 2,
     "horas_componentes": 2,
     "horas_trn": 1,
     "horas_aut": 1,
-    "horas_diario": 2
+    "horas_diario": 2,
+    "horas_audit": 2
 }

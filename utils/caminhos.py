@@ -25,6 +25,7 @@ ambiente = config["ambiente"]["ambiente"]
 
 # Acessar os valores das seções e chaves
 LOG_ESCRITA = config[ambiente]["log"]
+CAMINHO_LOGS = config[ambiente]["caminho_logs"]
 PASTA_DESTINO = config[ambiente]["cam_destino"]
 PASTA_ANALISE = config[ambiente]['cam_analise']
 PASTA_ZERO = config[ambiente]['cam_zero']
@@ -38,6 +39,8 @@ ARQUIVO_CONTROLE = config[ambiente]['cam_json']
 DIAS_FILTRO_ZERO = int(config[ambiente]['dias_filtro_zero'])
 DIAS_FILTRO_ANALISE = int(config[ambiente]['dias_filtro_ana'])
 DIAS_FILTRO_COMPONENTES = int(config[ambiente]['dias_filtro_comp'])
+DIAS_FILTRO_AUDIT = int(config[ambiente]['dias_filtro_audit'])
+PASTA_AUDITORIA = config[ambiente]['cam_auditoria']
 PASTA_LOGS = CAM_LOGS_LOGS
 USER = config[ambiente]['USER']
 PASSWORD = config[ambiente]['PASSWORD']
