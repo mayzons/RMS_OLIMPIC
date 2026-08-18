@@ -35,6 +35,7 @@ PASTABKP_DESTINO = config[ambiente]['cam_backup']
 PASTA_TRN = config[ambiente]['cam_transacao']
 PASTA_AUT = config[ambiente]['cam_autorizacoes']
 CONSUMO_NATA = config[ambiente]['cam_consumo_nata']
+PASTA_GRAFANA = config[ambiente]['cam_grafana']
 ARQUIVO_CONTROLE = config[ambiente]['cam_json']
 DIAS_FILTRO_ZERO = int(config[ambiente]['dias_filtro_zero'])
 DIAS_FILTRO_ANALISE = int(config[ambiente]['dias_filtro_ana'])

@@ -13,9 +13,16 @@ from expurgos import expurgos
 from consumo_nata import nata_execucao
 from trn_pista import gatilho_trn_pista
 from audit import gatilho_audit
+from sla_antenas import antenas
+from grafana import grafana
 
 from utils.logs_escrita import log_info
+from utils.caminhos import ORACLE_HOME
+import oracledb
 
+oracledb.init_oracle_client(
+    lib_dir=ORACLE_HOME
+)
 
 if __name__ == "__main__":
 
@@ -37,6 +44,10 @@ if __name__ == "__main__":
     opc()
     log_info("Finalizando o processo OPC...")
 
+    log_info("Iniciando o processo Grafana...")
+    grafana()
+    log_info("Finalizando o processo Grafana...")
+
     log_info("Iniciando o processo Análise...")
     gatilho_analise()
     log_info("Finalizando o processo Análise...")
@@ -52,6 +63,10 @@ if __name__ == "__main__":
     log_info("Iniciando o processo Critical...")
     critical()
     log_info("Finalizando o processo Critical...")
+
+    log_info("Iniciando o processo Antenas...")
+    antenas()
+    log_info("Finalizando o processo Antenas...")
 
     log_info("Iniciando o processo TRN_AUT...")
     gatilho_trn()

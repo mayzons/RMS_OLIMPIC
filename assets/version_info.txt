@@ -3,8 +3,8 @@
 # Arquivo de versão para PyInstaller
 VSVersionInfo(
   ffi=FixedFileInfo(
-    filevers=(4, 0, 0, 0),  # Versão do arquivo
-    prodvers=(4, 0, 0, 0),  # Versão do produto
+    filevers=(5, 0, 0, 0),  # Versão do arquivo
+    prodvers=(5, 0, 0, 0),  # Versão do produto
     mask=0x3f,
     flags=0x0,
     OS=0x40004,
@@ -19,12 +19,12 @@ VSVersionInfo(
         [
           StringStruct(u'CompanyName', u'Mayzon - MCS Corp Ltda'),  # Nome do Fabricante
           StringStruct(u'FileDescription', u'RMS_OLYMPIC'),  # Descrição do arquivo
-          StringStruct(u'FileVersion', u'4.0.0.0'),  # Versão do Arquivo
+          StringStruct(u'FileVersion', u'5.0.0.0'),  # Versão do Arquivo
           StringStruct(u'InternalName', u'RMS_OLYMPIC'),  # Nome interno do arquivo
           StringStruct(u'LegalCopyright', u'© 2025 Mayzon - MCS Corp. Todos os direitos reservados.'),  # Direitos Autorais
           StringStruct(u'OriginalFilename', u'RMS_OLYMPIC.exe'),  # Nome original do arquivo
           StringStruct(u'ProductName', u'RMS_OLYMPIC'),  # Nome do Produto
-          StringStruct(u'ProductVersion', u'4.0.0.0')  # Versão do Produto
+          StringStruct(u'ProductVersion', u'5.0.0.0')  # Versão do Produto
         ]
       )
     ]),
