@@ -77,14 +77,27 @@ def exportar_para_csv(result):
 
     log_info('Iniciando o cruzamento e exportação das transações!')
 
+    # 1. Garante que o diretório 'DATA' existe no servidor
+    pasta_banco = os.path.dirname(BANCO_ROOT)
+    os.makedirs(pasta_banco, exist_ok=True)
+
     conexao = sqlite3.connect(BANCO_ROOT)
     cursor = conexao.cursor()
 
-    # SINCRONOZADOS
+    # 2. Cria a tabela ANTES de tentar buscar os registros (evita erro de tabela inexistente)
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS transacao_sincronizada (
+            NSU TEXT PRIMARY KEY,
+            DATA_SINCRONISMO TEXT
+        )
+    """)
+    conexao.commit()
+
+    # 3. Busca NSUs já sincronizados
     cursor.execute("SELECT NSU FROM transacao_sincronizada")
     sincronizado = {str(row[0]).strip() for row in cursor.fetchall()}
 
-    # Foi ou não foi?
+    # 4. Separa transações pendentes
     for t in transacoes:
         nsu_oracle = str(t[1]).strip() if t[1] is not None else ""
         if nsu_oracle in sincronizado:
@@ -95,39 +108,26 @@ def exportar_para_csv(result):
     log_info(f"Encontrados (já sincronizados): {len(transacoes_encontradas)}")
     log_info(f"Não encontrados (pendentes): {len(transacoes_nao_encontradas)}")
 
-    # Gera CSV
+    # 5. Gera CSV de pendentes e atualiza o controle no SQLite
     if transacoes_nao_encontradas:
         os.makedirs(PASTA_DESTINO, exist_ok=True)
-        caminho_csv = os.path.join(PASTA_DESTINO, f"trans_pendentes.csv")
+        caminho_csv = os.path.join(PASTA_DESTINO, "trans_pendentes.csv")
 
-        # Gerar o arquivo CSV separado por vírgula
         with open(caminho_csv, mode="w", newline="", encoding="utf-8") as arquivo_csv:
             writer = csv.writer(arquivo_csv, delimiter=",")
-            # Cabeçalho opcional (descomente se precisar)
             writer.writerow(["POSTO", "NSU", "TAG", "DATA", "PISTA", "PRODUTO", "TOKEN", "PLACA_CAD", "PLACA_OCR", "CUPOM", "VALOR"])
             writer.writerows(transacoes_nao_encontradas)
 
         log_info(f'CSV gerado com sucesso em: {caminho_csv}')
 
-        # 4. Criar a tabela caso não exista
-        cursor.execute("""
-            CREATE TABLE IF NOT EXISTS transacao_sincronizada (
-                NSU TEXT PRIMARY KEY,
-                DATA_SINCRONISMO TEXT
-            )
-        """)
-
-        # 5. Prepara os dados para inserir na tabela transacao_sincronizada
         data_sincronismo = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         
-        # Extrai apenas o NSU (posição 1) e associa com a data do sincronismo
         novos_sincronizados = [
             (str(t[1]).strip(), data_sincronismo) 
             for t in transacoes_nao_encontradas 
             if t[1] is not None
         ]
 
-        # Inserção em lote (IGNORE para evitar erro caso o NSU já exista por algum motivo)
         cursor.executemany("""
             INSERT OR IGNORE INTO transacao_sincronizada (NSU, DATA_SINCRONISMO)
             VALUES (?, ?)
@@ -140,6 +140,7 @@ def exportar_para_csv(result):
 
     cursor.close()
     conexao.close()
+
 
 def carregar_controle():
     with open(ARQUIVO_CONTROLE, "r") as f:
