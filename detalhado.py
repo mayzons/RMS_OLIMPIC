@@ -48,26 +48,26 @@ def converter_data_segura(serie):
     return br if br.notna().sum() >= us.notna().sum() else us
 
 
-def critical():
+def detalhado():
     # Lista todos os arquivos do diretório
     arquivos_pasta = os.listdir(PASTA_TRATAR)
     total_arquivos = len(arquivos_pasta)
     arquivos_ok = []
 
     for arquivo in arquivos_pasta:
-        if 'critical ' in arquivo.lower():
+        if 'detalhado ' in arquivo.lower():
             arquivos_ok.append(arquivo)
 
     if total_arquivos > 0:
         for arquivo in arquivos_ok:
-            if 'critical ' in arquivo.lower():
+            if 'detalhado ' in arquivo.lower():
                 caminho_arquivo = os.path.join(PASTA_TRATAR, arquivo)
                 nome, extensao = os.path.splitext(arquivo)
             arquivo_saida = os.path.join(PASTA_DESTINO, arquivo)
             aba_especifica = "Sheet1"
 
             try:
-                log_info("Abrindo arquivo Excel de Critical...")
+                log_info("Abrindo arquivo Excel de Detalhado...")
 
                 df = pd.read_excel(
                     caminho_arquivo,
@@ -76,13 +76,13 @@ def critical():
                     header=1
                 )
 
-                log_info("Arquivo Critical carregado com sucesso.")
+                log_info("Arquivo Detalhado carregado com sucesso.")
 
                 df = df.drop(index=0)
 
-                # Extrai a data do arquivo (ex: "critical 01.08.2025.xlsx")
+                # Extrai a data do arquivo (ex: "detalahdo 01.08.2025.xlsx")
                 data_report_str = nome.lower().replace(
-                    "critical - ", "").strip()
+                    "detalhado - ", "").strip()
                 data_report_str = data_report_str.replace(".", "/")
 
                 df["data_report"] = converter_data_segura(
@@ -146,13 +146,12 @@ def critical():
                 log_error(str(e))
                 return False
     else:
-        log_info("Nenhum arquivo de Critical encontrado para processar.")
-
+        log_info("Nenhum arquivo de Detalhado encontrado para processar.")
 
 # if __name__ == '__main__':
 #     arquivos_pasta = os.listdir(PASTA_TRATAR)
 #     total_arquivos = len(arquivos_pasta)
 
 #     for arquivo in arquivos_pasta:
-#         if 'critical ' in arquivo.lower():
-#             critical()
+#         if 'detalhado ' in arquivo.lower():
+#             detalhado()

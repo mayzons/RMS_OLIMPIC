@@ -3,16 +3,21 @@ import sys
 import os
 
 
-# Caminho do Parser
+# # Caminho do Parser
 def get_app_and_settings_full_path():
     if getattr(sys, 'frozen', False):
         BASE_PATH = os.path.dirname(sys.executable)
     else:
         BASE_PATH = os.path.dirname(os.path.abspath(__file__))
-    return BASE_PATH, os.path.join(BASE_PATH, "Config.ini")
+    
+    # Sobe 1 nível no diretório (pasta raiz do projeto)
+    ROOT_PATH = os.path.abspath(os.path.join(BASE_PATH, ".."))
+    
+    return BASE_PATH, os.path.join(BASE_PATH, "Config.ini"), ROOT_PATH
 
+# Desempacotamento das 3 saídas
+CAM_LOGS_LOGS, CAM_CONFIG_PARSER, CAM_ROOT_PROJECT = get_app_and_settings_full_path()
 
-CAM_LOGS_LOGS, CAM_CONFIG_PARSER = get_app_and_settings_full_path()
 
 
 # Criar objeto do configparser
@@ -24,6 +29,7 @@ with open(CAM_CONFIG_PARSER, "r", encoding="utf-8") as file:
 ambiente = config["ambiente"]["ambiente"]
 
 # Acessar os valores das seções e chaves
+PASTA_ROOT = CAM_ROOT_PROJECT
 LOG_ESCRITA = config[ambiente]["log"]
 CAMINHO_LOGS = config[ambiente]["caminho_logs"]
 PASTA_DESTINO = config[ambiente]["cam_destino"]

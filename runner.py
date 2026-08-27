@@ -6,15 +6,17 @@ from analise import gatilho_analise
 from zero import gatilho_zero
 from componentes import gatilho_componentes
 from critical import critical
-from trn import gatilho_trn
-from aut import gatilho_aut
+from ultima_transacao_posto import gatilho_trn
+from autorizacoes import gatilho_aut
 from diario_bordo import gatilho_diario
 from expurgos import expurgos
 from consumo_nata import nata_execucao
-from trn_pista import gatilho_trn_pista
-from audit import gatilho_audit
+from ultima_transacao_pistas import gatilho_trn_pista
+from auditoria import gatilho_audit
 from sla_antenas import antenas
 from grafana import grafana
+from detalhado import detalhado
+from transacoes import transacoes_historico
 
 from utils.logs_escrita import log_info
 from utils.caminhos import ORACLE_HOME
@@ -64,6 +66,10 @@ if __name__ == "__main__":
     critical()
     log_info("Finalizando o processo Critical...")
 
+    log_info("Iniciando o processo Detalhado...")
+    detalhado()
+    log_info("Finalizando o processo Detalhado...")
+
     log_info("Iniciando o processo Antenas...")
     antenas()
     log_info("Finalizando o processo Antenas...")
@@ -75,6 +81,10 @@ if __name__ == "__main__":
     log_info("Iniciando o processo TRN_Pista...")
     gatilho_trn_pista()
     log_info("Finalizando o processo TRN_Pista...")
+    
+    log_info("Iniciando o processo TRN Historico...")
+    transacoes_historico()
+    log_info("Finalizando o processo TRN Historico...")
 
     log_info("Iniciando o processo TRN_AUT...")
     gatilho_aut()
