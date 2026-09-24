@@ -10,3 +10,8 @@ pyinstaller --name="RMS_OLYMPIC" --noconfirm --onefile --icon="assets/icone.ico"
 
 
 pyinstaller --name="RMS_OLYMPIC" --noconfirm --onefile --icon="assets/icone.ico" --version-file="assets/version_info.txt" --noconsole --clean --log-level=WARN --hidden-import=getpass --add-data "utils\Config.ini;utils" --add-data "utils\controle_execucao.json;utils" runner.py
+
+
+
+
+pyinstaller --name="RMS_OLYMPIC" --noconfirm --onefile --icon="assets/icone.ico" --version-file="assets/version_info.txt" --noconsole --clean --log-level=WARN --hidden-import=getpass --add-data "utils\Config.ini;utils" --add-data "utils\controle_execucao.json;utils" --add-data "utils\tarefas.json;utils" runner.py

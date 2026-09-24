@@ -1,0 +1,82 @@
+[
+    {
+        "hora_inicio": "05:00",
+        "hora_fim": "22:00",
+        "intervalo": 30,
+        "acao": "copiar",
+        "de": "C:\\Users\\mayzon.santos\\Corpay\\Indicadores_PowerBi - Documentos\\Indicadores_PowerBI\\1000-Base_Atualização_Suspensos\\Análise Diária de disponibilidade.xlsx",
+        "para": "C:\\Users\\mayzon.santos\\Corpay\\Indicadores_PowerBi - Documentos\\Indicadores_PowerBI\\Tratativas",
+        "sem_parada": "nao",
+        "ultima_execucao": "2026-09-24 15:02:59"
+    },
+    {
+        "hora_inicio": "05:00",
+        "hora_fim": "22:00",
+        "intervalo": 240,
+        "acao": "copiar",
+        "de": "C:\\Users\\mayzon.santos\\Corpay\\Indicadores_PowerBi - Documentos\\Indicadores_PowerBI\\1000-Base_Atualização_Suspensos\\Volumetria Zero TRN.xlsx",
+        "para": "C:\\Users\\mayzon.santos\\Corpay\\Indicadores_PowerBi - Documentos\\Indicadores_PowerBI\\Tratativas",
+        "sem_parada": "nao",
+        "ultima_execucao": "2026-09-24 15:02:59"
+    },
+    {
+        "hora_inicio": "05:00",
+        "hora_fim": "22:00",
+        "intervalo": 240,
+        "acao": "copiar",
+        "de": "C:\\Users\\MAYZON.SANTOS\\Corpay\\Governança Sustentação - Documentos\\Auditoria TIVIT\\Base_Auditoria\\Auditoria TIVIT.xlsx",
+        "para": "C:\\Users\\mayzon.santos\\Corpay\\Indicadores_PowerBi - Documentos\\Indicadores_PowerBI\\Tratativas",
+        "sem_parada": "nao",
+        "ultima_execucao": "2026-09-24 15:02:59"
+    },
+    {
+        "hora_inicio": "05:00",
+        "hora_fim": "22:00",
+        "intervalo": 15,
+        "acao": "mover",
+        "de": "C:\\Users\\mayzon.santos\\Corpay\\Indicadores_PowerBi - Documentos\\Indicadores_PowerBI\\Tratativas\\CriarUserDS_Automate.xlsx",
+        "para": "\\\\bredt1-SVFSVP10\\ARQUIVOS\\FS\\AREAS\\SATC\\GERAL\\User_DS\\CriarUserDS.xlsx",
+        "sem_parada": "nao",
+        "ultima_execucao": "2026-09-24 15:02:59"
+    },
+    {
+        "hora_inicio": "05:00",
+        "hora_fim": "22:00",
+        "intervalo": 15,
+        "acao": "copiar",
+        "de": "C:\\Users\\mayzon.santos\\Corpay\\Indicadores_PowerBi - Documentos\\Indicadores_PowerBI\\Tratativas\\CriarUserDS_Automate - BKP.xlsx",
+        "para": "C:\\Users\\mayzon.santos\\Corpay\\Indicadores_PowerBi - Documentos\\Indicadores_PowerBI\\Tratativas\\CriarUserDS_Automate.xlsx",
+        "sem_parada": "nao",
+        "ultima_execucao": "2026-09-24 15:02:59"
+    },
+    {
+        "hora_inicio": "05:00",
+        "hora_fim": "11:00",
+        "intervalo": 60,
+        "acao": "copiar",
+        "de": "\\\\br-vm-svfsvp02\\AXWAY_BACKUP\\EDI\\4.RECEBIMENTO\\4.ABASTECE\\DADOS_RECEBIDOS_BUCKET\\disponibilidade_habib.xlsx",
+        "para": "C:\\Users\\mayzon.santos\\Corpay\\Governança Tivit - TRN DISP\\Disp_Acomp.xlsx",
+        "sem_parada": "nao",
+        "ultima_execucao": "2026-09-24 10:41:07"
+    },
+    {
+        "hora_inicio": "05:00",
+        "hora_fim": "11:00",
+        "intervalo": 60,
+        "acao": "copiar",
+        "de": "C:\\Users\\mayzon.santos\\Corpay\\Indicadores_PowerBi - Documentos\\Indicadores_PowerBI\\Ultima_TRN\\MAX_PISTA_TIPO.csv",
+        "para": "C:\\Users\\mayzon.santos\\Corpay\\Governança Tivit - TRN DISP",
+        "sem_parada": "nao",
+        "ultima_execucao": "2026-09-24 10:41:07"
+    },
+    {
+        "hora_inicio": "05:00",
+        "hora_fim": "11:00",
+        "intervalo": 30,
+        "acao": "copiar",
+        "de": "\\\\br-vm-svfsvp02\\AXWAY_BACKUP\\EDI\\4.RECEBIMENTO\\4.ABASTECE\\DADOS_RECEBIDOS_BUCKET\\analise_manual.xlsx",
+        "para": "C:\\Users\\mayzon.santos\\Corpay\\Indicadores_PowerBi - Documentos\\DATABRIKS\\TRATAR",
+        "sem_parada": "nao",
+        "ultima_execucao": "2026-09-24 10:41:07"
+    }
+]

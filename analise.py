@@ -59,7 +59,7 @@ def analise():
 
     arquivo_saida = os.path.join(PASTA_DESTINO, "analise.csv")
 
-    aba_especifica = "Análise 0 - 90.00%"
+    aba_especifica = "ANALISE"
     coluna_data = "data_report"
 
     try:
@@ -77,8 +77,8 @@ def analise():
         df = normalizar_colunas(df)
 
         colunas_desejadas = [
-            "codigo", "nome", "data_report", "analise", "tratativas",
-            "observacoes", "data_conclusao", "qtd_dias", "abono"
+            "codigo", "nome", "data_report", "analise_realizada", "tratativas_realizadas", "chamados",
+            "data_conclusao", "status_do_alerta", "causa_resumida","evento_abonado"
         ]
 
         faltando = set(colunas_desejadas) - set(df.columns)
@@ -187,3 +187,7 @@ def gatilho_analise():
         salvar_controle(controle)
     else:
         log_info("Ainda não chegou o horário da execução.")
+
+
+if __name__ == "__main__":
+    analise()
